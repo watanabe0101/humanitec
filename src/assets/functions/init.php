@@ -1,0 +1,123 @@
+<?php
+
+if ( !defined( 'ABSPATH' ) ) exit;
+
+
+//ビジュアルエディタースタイルを適用
+add_editor_style();
+
+function my_setup(){
+  add_theme_support('post-thumbnails'); // アイキャッチ画像を有効化
+  add_theme_support('automatic-feed-links'); // 投稿とコメントのRSSフィードのリンクを有効化
+  add_theme_support('title-tag'); // titleタグ自動生成
+  add_theme_support('html5', array( // HTML5による出力
+    'search-form',
+    'comment-form',
+    'comment-list',
+    'gallery',
+    'caption',
+  ));
+}
+add_action('after_setup_theme', 'my_setup');
+
+
+// URL末尾に/?author=1を打った時にTOPにリダイレクト（セキュリティ対策）
+function theme_slug_redirect_author_archive() {
+    if (is_author() ) {
+        wp_redirect( home_url());
+        exit;
+    }
+}
+add_action( 'template_redirect', 'theme_slug_redirect_author_archive' );
+
+
+// REST APIでユーザー名を確認できないように（セキュリティ対策）
+function my_filter_rest_endpoints($endpoints)
+{
+  if (isset($endpoints['/wp/v2/users'])) {
+    unset($endpoints['/wp/v2/users']);
+  }
+  if (isset($endpoints['/wp/v2/users/(?P[\d]+)'])) {
+    unset($endpoints['/wp/v2/users/(?P[\d]+)']);
+  }
+  return $endpoints;
+}
+add_filter('rest_endpoints', 'my_filter_rest_endpoints', 10, 1);
+
+
+// ダッシュボードを非表示
+function remove_dashboard_widgets()
+{
+  remove_action('welcome_panel', 'wp_welcome_panel');
+  remove_meta_box('dashboard_php_nag', 'dashboard', 'normal');
+  remove_meta_box('dashboard_site_health', 'dashboard', 'normal');
+  remove_meta_box('dashboard_activity', 'dashboard', 'normal');
+  remove_meta_box('dashboard_right_now', 'dashboard', 'normal');
+  remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
+  remove_meta_box('dashboard_primary', 'dashboard', 'side'); 
+}
+add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
+
+
+
+// 固定ページで「抜粋」を有効化
+add_post_type_support('page', 'excerpt');
+// カテゴリーとタグのmeta descriptionからpタグを除去
+remove_filter('term_description','wpautop');
+
+
+//投稿・固定ページ管理画面の記事一覧テーブルにIDカラムを作成
+add_filter( 'manage_posts_columns', 'customize_admin_manage_posts_columns' );//投稿
+add_filter( 'manage_pages_columns', 'customize_admin_manage_posts_columns' );//固定ページ
+function customize_admin_manage_posts_columns($columns) {
+  //投稿ID
+  $columns['post-id'] = 'ID';
+
+  return $columns;
+}
+
+
+//投稿・固定ページ管理画面の記事一覧テーブルにIDを表示
+add_action( 'manage_posts_custom_column', 'customize_admin_add_column', 10, 2 );//投稿
+add_action( 'manage_pages_custom_column', 'customize_admin_add_column', 10, 2 );//固定ページ
+function customize_admin_add_column($column_name, $post_id) {
+  //投稿ID
+  if ( 'post-id' === $column_name ) {
+    $thum = $post_id;
+  }
+  if ( isset($thum) && $thum ) {
+    echo $thum;
+  }
+}
+
+//投稿・固定ページ管理画面の記事一覧テーブルにIDソートを可能にする
+add_filter( 'manage_edit-post_sortable_columns', 'sort_term_columns' );//投稿
+add_filter( 'manage_edit-page_sortable_columns', 'sort_term_columns' );//固定ページ
+function sort_term_columns($columns) {
+  $columns['post-id'] = 'ID';
+  return $columns;
+}
+
+
+// カスタム投稿のアーカイブページやタクソノミー一覧、などでwp_title() の出力を無効にする（titleタグが二重になるのを防ぐ）
+function disable_wp_title() {
+  if( is_post_type_archive('カスタム投稿のタイプ') || is_tax() || is_singular('カスタム投稿のタイプ') ) {
+      return '';
+  }
+}
+remove_action('wp_head', '_wp_render_title_tag', 1);
+add_filter('wp_title', 'disable_wp_title', 10, 3);
+
+
+
+// pタグ、brタグの自動挿入を防ぐ
+function disable_autop_on_specific_page($content) {
+  // 特定のページIDを指定
+  if (is_page(array(146, 245, 247))) {
+      remove_filter('the_content', 'wpautop');
+      remove_filter('the_excerpt', 'wpautop');
+  }
+  return $content;
+}
+add_filter('the_content', 'disable_autop_on_specific_page', 0);
+add_filter('the_excerpt', 'disable_autop_on_specific_page', 0);
