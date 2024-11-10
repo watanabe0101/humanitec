@@ -1,1 +1,42 @@
 @use "../../Object/Utility" as *;
+
+.more-link {
+  --_color: #2095A2;
+  --_duration: 0.5s;
+
+  margin-block: var(--leading-trim);
+  inline-size: fit-content;
+  display: flex;
+  column-gap: 1em;
+  align-items: center;
+  font-size: calc(16 * var(--rem-ratio));
+  font-style: italic;
+  letter-spacing: calc(calc(30 / 1000) * 1em);
+  line-height: calc(28 / 16);
+  color: var(--_color);
+  transition: opacity var(--_duration), outline-offset var(--_duration);
+
+  @include mq("md") {
+    --_clamp-min: 16;
+    --_clamp-max: 34;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+    line-height: calc(60 / 34);
+  }
+
+  &:hover {
+    @media (any-hover: hover) {
+      opacity: 0.6;
+    }
+  }
+  
+  &:focus-visible {
+    opacity: 0.6;
+  }
+}
+
+.more-link__arrow {
+  --_inline-size: 18;
+  --_background: #2095A2;
+}

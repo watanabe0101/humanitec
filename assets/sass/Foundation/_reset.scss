@@ -38,7 +38,6 @@ h6 {
 }
 
 body {
-  line-height: 1.5;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
 }
@@ -56,15 +55,15 @@ a {
   text-decoration: none;
 }
 
-img,picture {
+picture {
+  display: contents;
+}
+
+img {
   display: block;
   width: 100%;
   max-width: 100%;
   height: auto;
-}
-
-article > * + * {
-  margin-top: 1em;
 }
 
 input,

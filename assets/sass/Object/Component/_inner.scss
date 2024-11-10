@@ -1,1 +1,34 @@
 @use "../../Object/Utility" as *;
+
+.inner {
+  --_inline-size: 1100px;
+  --_padding: 30;
+  
+  box-sizing: initial;
+  max-inline-size: var(--_inline-size);
+  padding-inline: calc(var(--_padding) * 1px);
+  margin-inline: auto;
+
+  @include mq("md") {
+    padding-inline: calc(var(--_padding) * var(--medium-fluid-ratio) * 1);
+  }
+}
+
+.inner-shrink {
+  --_inline-size: calc(1100 * var(--max-fluid-ratio));
+  --_padding: 30;
+  
+  @include mq("xl") {
+    --_inline-size: 1100px;
+  }
+
+  
+  box-sizing: initial;
+  max-inline-size: var(--_inline-size);
+  padding-inline: calc(var(--_padding) * 1px);
+  margin-inline: auto;
+
+  @include mq("md") {
+    padding-inline: calc(var(--_padding) * var(--medium-fluid-ratio) * 1);
+  }
+}

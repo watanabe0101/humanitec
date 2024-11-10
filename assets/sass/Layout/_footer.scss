@@ -1,1 +1,108 @@
 @use "../Object/Utility" as *;
+
+.footer {
+  padding-block-start: 34px;
+  padding-block-end: 16px;
+  background: linear-gradient(to bottom right, #2095A2, #A1D280);
+
+  @include mq("md") {
+    padding-block-start: 37px;
+    padding-block-end: 20px;
+  }
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-between;
+  align-self: end;
+  column-gap: 20px;
+
+  @include mq("md") {
+    display: block;
+  }
+}
+
+.footer__logo {
+  inline-size: 446px;
+
+  @media screen and (max-width: 1100px) {
+    inline-size: 300px;;
+  }
+
+  @include mq("md") {
+    inline-size: 100%;
+  }
+
+  img {
+    aspect-ratio: 446 / 78;
+    object-fit: cover;
+  }
+}
+
+.footer__link {
+  --_duration: 0.5s;
+  
+  transition: opacity var(--_duration), outline-offset var(--_duration);
+  &:hover {
+    @media (any-hover: hover) {
+      opacity: 0.6;
+    }
+  }
+  
+  &:focus-visible {
+    opacity: 0.6;
+  }
+}
+
+.footer__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  font-size: calc(14 * var(--rem-ratio));
+  line-height: calc(27 / 14);
+  letter-spacing: calc(calc(0 / 1000) * 1em);
+  color: var(--color-white);
+
+  @include mq("md") {
+    --_clamp-min: 14;
+    --_clamp-max: 22;
+    --_min-layout-width: 375;
+    --_max-layout-width: 640;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+
+    margin-block-start: calc(31 * var(--medium-fluid-ratio));
+    font-size: var(--_clamp);
+    line-height: calc(32 / 22);
+  }
+}
+
+.footer__tel {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  column-gap: 1em;
+  font-family: "Noto Sans JP", sans-serif;
+}
+
+.footer__phone {
+  color: var(--color-white);
+}
+
+.copyright {
+  margin-block-start: calc(27px + var(--leading-trim));
+  display: inline-block;
+  color: var(--color-white);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: calc(10 * var(--rem-ratio));
+  letter-spacing: calc(calc(50 / 1000) * 1em);
+
+  @include mq("md") {
+    --_clamp-min: 10;
+    --_clamp-max: 18;
+    --_min-layout-width: 375;
+    --_max-layout-width: 640;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+
+    margin-block-start: calc(54 * var(--medium-fluid-ratio));
+    font-size: var(--_clamp);
+  }
+}

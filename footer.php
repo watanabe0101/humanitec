@@ -1,20 +1,19 @@
 <?php if (!defined('ABSPATH')) exit; ?>
 
 <footer id="footer" class="footer">
-  <div class="footer__inner">
-    <div class="footer__wrapper">
+  <div class="footer__inner inner">
+    <div class="footer__content">
       <div class="footer__logo">
-        <?php the_custom_logo(); ?>
+        <a href="<?php echo esc_url(home_url('/')); ?>" class="footer__link"><img src="<?php echo get_theme_file_uri('/assets/images/footer/footer-logo.svg'); ?>" alt="" loading="lazy"></a>
       </div>
-      <nav class="footer__nav">
-        <ul class="footer__list">
-          <li class="footer__item">
-            <a href="<?php echo esc_url(home_url('/')); ?>contact" class="footer__link">CONTACT</a>
-          </li>
-        </ul>
-      </nav>
+      <div class="footer__info">
+        <p class="footer__address">三重県四日市市鵜の森一丁目4番28号 ユマニテクプラザ1F</p>
+        <div class="footer__tel">
+          <a href="tel:0593404575" class="footer__phone">Tel. 059-340-4575</a><p class="footer__fax">Fax. 059-351-1711</p>
+        </div>
+      </div>
     </div>
-    <small class="copyright">&copy; 2024 WWW.</small>
+    <small class="copyright">2024&copy;HUMANITEC EDUCATIONAL SUPPORT CENTER</small>
   </div>
 </footer>
 <?php

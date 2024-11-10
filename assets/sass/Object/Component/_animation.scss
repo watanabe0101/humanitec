@@ -23,77 +23,21 @@
 }
 
 /* ===============================================
-# ループアニメーション
+# フェードイン、フェードアウトスライダー
 =============================================== */
-// ループ画像
-.loopSlider__item {
-  display: none;
-  inline-size: 640px;
-}
-
-// ループテキスト
-.loop {
-  display: flex;
-  overflow: hidden;
-}
-
-.loop__left1 {
-  flex-shrink: 0;
-  animation: loop 80s -40s linear infinite;
-  padding-inline-start: 0.5em;
-
-  span {
-    padding-inline-start: 0.5em;
+@keyframes fadeSlider {
+  0%{
+    opacity: 0;
   }
-}
-
-.loop__left2 {
-  flex-shrink: 0;
-  animation: loop2 80s linear infinite;
-  padding-inline-start: 0.5em;
-
-  span {
-    padding-inline-start: 0.5em;
+  25%{
+    opacity: 1;
   }
-}
-
-.loop__right1 {
-  flex-shrink: 0;
-  animation: loop 170s -85s linear infinite;
-  animation-direction: reverse;
-  padding-inline-start: 0.5em;
-
-  span {
-    padding-inline-start: 0.5em;
+  70%{
+    opacity: 1;
   }
-}
-
-.loop__right2 {
-  flex-shrink: 0;
-  animation: loop2 170s linear infinite;
-  animation-direction: reverse;
-  padding-inline-start: 0.5em;
-
-  span {
-    padding-inline-start: 0.5em;
-  }
-}
-
-@keyframes loop {
-  0% {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes loop2 {
-  0% {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-200%);
+  100%{
+    opacity: 0;
+    z-index: 0;
   }
 }
 
