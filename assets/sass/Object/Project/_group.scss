@@ -1,0 +1,220 @@
+@use "../../Object/Utility" as *;
+
+/* ===============================================
+# fv
+=============================================== */
+.group-fv__image {
+  img {
+    aspect-ratio: 1600/750;
+    object-fit: cover;
+
+    @include mq("md") {
+      aspect-ratio: 640/800;
+    }
+  }
+}
+
+/* ===============================================
+# group-section
+=============================================== */
+.group-section {
+  margin-block-start: 238px;
+  margin-block-end: 415px;
+
+  @include mq("md") {
+    margin-block-start: calc(95 * var(--medium-fluid-ratio));
+    margin-block-end: calc(298 * var(--medium-fluid-ratio));
+  }
+}
+
+.group-section__intro {
+  inline-size: fit-content;
+  margin-inline: auto;
+  margin-block: var(--leading-trim);
+  font-family: var(--third-font);
+  font-size: calc(18 * var(--rem-ratio));
+  font-weight: var(--regular);
+  letter-spacing: calc(calc(50 / 1000) * 1em);
+
+  @include mq("md") {
+    --_clamp-min: 18;
+    --_clamp-max: 28;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+    line-height: calc(45 / 28);
+    text-align: center;
+    text-wrap: balance;
+  }
+}
+
+.group-section__group {
+  margin-block-start: 198px;
+  display: block grid;
+  grid-template-columns: auto auto;
+  grid-auto-rows: 1fr;
+  position: relative;
+
+  @include mq("md") {
+    margin-block-start: calc(93 * var(--medium-fluid-ratio));
+    grid-auto-rows: auto;
+  }
+
+  &::before {
+    position: absolute;
+    content: "グループ一覧";
+    top: -23px;
+    left: 0;
+    padding-block: 1.5px;
+    padding-inline: 7px;
+    display: grid;
+    place-items: center;
+    background: var(--color-blue);
+    color: var(--color-white);
+    font-family: var(--third-font);
+    font-weight: var(--bold);
+    font-size: calc(14 * var(--rem-ratio));
+    letter-spacing: calc(calc(50 / 1000) * 1em);
+
+    @include mq("md") {
+      --_clamp-min: 14;
+      --_clamp-max: 22;
+      --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+      
+      font-size: var(--_clamp);
+      padding-block: calc(-1 * var(--medium-fluid-ratio));
+      padding-inline: calc(9 * var(--medium-fluid-ratio));
+      top: calc(-32 * var(--medium-fluid-ratio));
+    }
+  }
+}
+
+.group-section__item {
+  --_border-color: var(--color-blue);
+
+  padding-block: 69px;
+  display: block grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  column-gap: 85px;
+  align-items: center;
+  border-block-start: 1px solid var(--_border-color);
+
+  @include mq("md") {
+    padding-block: calc(40 * var(--medium-fluid-ratio));
+    column-gap: calc(33 * var(--medium-fluid-ratio));
+  }
+
+  &:last-child {
+    border-block-end: 1px solid var(--_border-color);
+  }
+}
+
+.group-section__associate {
+  --_border-color: var(--color-blue);
+
+  display: grid;
+  align-items: center;
+  block-size: 256px;
+  border-block-end: 1px solid var(--_border-color);
+
+  @include mq("md") {
+    block-size: calc(256 * var(--medium-fluid-ratio));
+  }
+}
+
+.group-section__group-title {
+  font-family: var(--third-font);
+  font-weight: var(--bold);
+  font-size: calc(18 * var(--rem-ratio));
+
+  @include mq("md") {
+    --_clamp-min: 16;
+    --_clamp-max: 26;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+    line-height: calc(32 / 26);
+  }
+}
+
+.group-section__link {
+  --_duration: 0.6s;
+
+  transition: opacity var(--_duration), outline-offset var(--_duration);
+
+  &:hover {
+    @media (any-hover: hover) {
+      opacity: 0.6;
+    }
+  }
+  
+  &:focus-visible {
+    opacity: 0.6;
+  }
+}
+
+.group-section__group-details {
+  --_border-color: var(--color-blue);
+
+  position: relative;
+  line-height: 1;
+  padding-inline-start: 61px;
+  margin-block: var(--leading-trim);
+
+  @include mq("md") {
+    padding-inline-start: calc(25 * var(--medium-fluid-ratio));
+  }
+
+  &::before {
+    --_lh: 1.5lh;
+
+    margin-block-start: calc(var(--_lh) / 2);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    inline-size: 1px;
+    block-size: calc(100% - calc(var(--_lh)));
+    background: var(--color-blue);
+  }
+}
+
+.group-section__detail {
+  --_duration: 0.6s;
+
+  font-family: var(--third-font);
+  font-weight: var(--regular);
+  font-size: calc(16 * var(--rem-ratio));
+  line-height: calc(39 / 16);
+  font-feature-settings: "palt";
+  transition: opacity var(--_duration), outline-offset var(--_duration);
+
+  @include mq("md") {
+    --_clamp-min: 12;
+    --_clamp-max: 24;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+    letter-spacing: calc(calc(40 / 1000) * 1em);
+    line-height: calc(39 / 24);
+  }
+
+  &::after {
+    content: " ／ ";
+  }
+
+  &:last-of-type::after {
+    content: none;
+  }
+
+  &:hover {
+    @media (any-hover: hover) {
+      opacity: 0.6;
+    }
+  }
+  
+  &:focus-visible {
+    opacity: 0.6;
+  }
+}

@@ -1,0 +1,61 @@
+@use "../../Object/Utility" as *;
+
+.arrow {
+  --_inline-size: 39;
+  --_background: #4DAAB5;
+
+  display: inline-block;
+  position: relative;
+  inline-size: calc(var(--_inline-size) * 1px);
+  block-size: 1px;
+  color: var(--_background);
+  background: var(--_background);
+
+  &::before {
+    content: '';
+    inline-size: calc(var(--_inline-size) * 0.36px);
+    block-size: calc(var(--_inline-size) * 0.36px);
+    border: 1px solid var(--_background);
+    border-inline-start: 0;
+    border-block-end: 0;
+    rotate: 45deg;
+    transform-origin: top right;
+    position: absolute;
+    top: 50%;
+    right: -0.05em;
+    box-sizing: border-box;
+  }
+}
+
+.arrow2 {
+  --_inline-size: 39;
+  --_background: #4DAAB5;
+
+  position: relative;
+  display: inline-block;
+  inline-size: calc(var(--_inline-size) * 1px);
+  block-size: 1px;
+  color: var(--_background);
+  background: var(--_background);
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 0;
+    inline-size: calc(var(--_inline-size) * 0.36px);
+    block-size: 1px;
+    background: var(--_background);
+    transform-origin: 0px 50%;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+  
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
