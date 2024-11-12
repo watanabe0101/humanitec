@@ -19,12 +19,16 @@
     <!-- title -->
     <?php if (is_home() || is_front_page()): ?>
       <title>ユマニテク教育支援センター｜三重県四日市市</title>
-    <?php elseif (is_page('')): ?>
+    <?php elseif (is_page('group')): ?>
+      <title>グループ法人｜ユマニテク教育支援センター</title>
+    <?php elseif (is_page('about')): ?>
+      <title>法人概要｜ユマニテク教育支援センター</title>
     <?php elseif (is_category()): ?>
     <?php elseif (is_tag()): ?>
     <?php elseif (is_tax()): ?>
     <?php elseif (is_singular()): ?>
-    <?php elseif (is_post_type_archive('カスタム投稿のスラッグ')): ?>
+    <?php elseif (is_post_type_archive('news')): ?>
+      <title>お知らせ｜ユマニテク教育支援センター</title>
     <?php endif; ?>
     <!-- アーカイブページ、ターム別一覧ページ、カスタム投稿の各記事のtitleを個別に設定 -->
     <?php if (is_post_type_archive('news') || is_tax() || is_singular('カスタム投稿名')): ?>
@@ -34,8 +38,10 @@
     <!-- description -->
     <?php if (is_home() || is_front_page()): ?>
       <meta name="description" content="「介護福祉士実務者研修」「保育専門研修」「外国人人材集合研修」「外国人（技能実習生／特定技能外国人）向け日本語研修」などの教育研修事業を行うユマニテク教育支援センターのホームページです。">
-    <?php elseif (is_page('')): ?>
-      <meta name="description" content="">
+    <?php elseif (is_page('group')): ?>
+      <meta name="description" content=“ユマニテク教育支援センターは、愛知・三重で専門学校・短大、社会福祉施設などを運営する大橋学園グループの一員です。”>
+    <?php elseif (is_page('about')): ?>
+      <meta name="description" content=“ユマニテク教育支援センターの法人概要ページです。”>
     <?php elseif (is_category()): ?>
       <meta name="description" content="<?php echo category_description(); ?>">
     <?php elseif (is_tag()): ?>
@@ -164,7 +170,7 @@
               <nav class="header__menu">
                 <ul class="header__list">
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/')); ?>" class="header__link">事業紹介</a></li>
-                  <li class="header__item"><a href="<?php echo esc_url(home_url('/')); ?>" class="header__link">法人概要</a></li>
+                  <li class="header__item"><a href="<?php echo esc_url(home_url('/about/')); ?>" class="header__link">法人概要</a></li>
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/news/')); ?>" class="header__link">お知らせ</a></li>
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/group/')); ?>" class="header__link">グループ法人</a></li>
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/')); ?>" class="header__link">求人情報</a></li>
@@ -207,7 +213,7 @@
               <nav class="header__menu">
                 <ul class="header__list">
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/')); ?>" class="header__link">事業紹介</a></li>
-                  <li class="header__item"><a href="<?php echo esc_url(home_url('/')); ?>" class="header__link">法人概要</a></li>
+                  <li class="header__item"><a href="<?php echo esc_url(home_url('/about/')); ?>" class="header__link">法人概要</a></li>
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/news/')); ?>" class="header__link">お知らせ</a></li>
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/group/')); ?>" class="header__link">グループ法人</a></li>
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/')); ?>" class="header__link">求人情報</a></li>
@@ -234,7 +240,7 @@
         <div class="headerDrawer__inner">
           <ul class="headerDrawer__list">
             <li class="headerDrawer__item">
-              <a href="<?php echo esc_url(home_url('/')); ?>" class="headerDrawer__link">法人概要<span class="headerDrawer__arrow arrow"></span></a>
+              <a href="<?php echo esc_url(home_url('/about/')); ?>" class="headerDrawer__link">法人概要<span class="headerDrawer__arrow arrow"></span></a>
             </li>
             <li class="headerDrawer__item">
               <a href="<?php echo esc_url(home_url('/news/')); ?>" class="headerDrawer__link">お知らせ<span class="headerDrawer__arrow arrow"></span></a>

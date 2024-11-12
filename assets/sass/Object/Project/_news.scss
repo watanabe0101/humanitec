@@ -158,6 +158,7 @@
   margin-block-end: 421px;
   display: flex;
   justify-content: space-between;
+  position: relative;
 
   @include mq("md") {
     margin-block-start: calc(35 * var(--medium-fluid-ratio));
@@ -205,6 +206,9 @@
   grid-template-columns: 1fr auto;
   column-gap: 0.5em;
   align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 .custom-pagination__arrow {

@@ -39,24 +39,6 @@
       <?php custom_paginate_links($the_query, $paged); ?>
     </div>
   </div>
-  
-  <?php
-  if ($the_query->max_num_pages > 1) {
-    echo paginate_links(array(
-      'base'      => get_pagenum_link(1) . '%_%',
-      'format'    => 'page/%#%/',
-      'current'   => max(1, $paged),
-      'total'     => $the_query->max_num_pages,
-      'end_size'  => '1', // ページ番号リストの両端に表示するページ数
-      'mid_size'  => '2', // 現在ページの左右に表示するページ番号の数
-      'show_all'  => false,
-      'prev_next' => true, // 「前へ」「次へ」のリンクを表示する場合はtrue
-      'prev_text' =>  '新しい記事',  // 「前へ」の文言変更
-      'next_text' =>  '過去の記事',  // 「次へ」の文言変更
-      'type'      => 'list' // 戻り値の指定 (plain/list)
-    ));
-  }
-  ?>
   <?php wp_reset_postdata(); ?>
 </main>
 

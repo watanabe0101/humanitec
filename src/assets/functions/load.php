@@ -19,6 +19,10 @@ function my_script()
   if (is_page('group')) {
     wp_enqueue_style('group-style', get_stylesheet_directory_uri() . '/assets/css/group.min.css', array(), filemtime(get_theme_file_path('assets/css/group.min.css')));
   }
+
+  if (is_page('about')) {
+    wp_enqueue_style('about-style', get_stylesheet_directory_uri() . '/assets/css/about.min.css', array(), filemtime(get_theme_file_path('assets/css/about.min.css')));
+  }
   
   if (is_post_type_archive('news')) {
     wp_enqueue_style('news-style', get_stylesheet_directory_uri() . '/assets/css/news.min.css', array(), filemtime(get_theme_file_path('assets/css/news.min.css')));
