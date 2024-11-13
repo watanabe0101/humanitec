@@ -32,3 +32,21 @@
     padding-inline: calc(var(--_padding) * var(--medium-fluid-ratio) * 1);
   }
 }
+
+.page-inner {
+  --_inline-size: 1100px;
+  --_padding: 30;
+  
+  box-sizing: initial;
+  max-inline-size: var(--_inline-size);
+  padding-inline: calc(var(--_padding) * 1px);
+  margin-inline: auto;
+  display: grid;
+  align-items: center;
+  justify-content: start;
+  block-size: 100%;
+  
+  @include mq("md") {
+    padding-inline: calc(var(--_padding) * var(--medium-fluid-ratio) * 1);
+  }
+}

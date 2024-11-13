@@ -31,3 +31,30 @@ function display_category_labels($taxonomy, $custom_class = '') {
     }
   }
 }
+
+
+
+//taxonomy-labelをクラス名にtaxonomy名を付与して出力（リンクなし）
+function taxonomies_label() {
+  if ($terms = get_the_terms(get_the_ID(), 'employment-type')) {
+    foreach ($terms as $term) {
+      echo ('<p ');
+      echo 'class="recruit-card__' . esc_attr($term->slug) . '">';
+      echo esc_html($term->name);
+      echo ('</p>');
+    }
+  }
+}
+
+
+//taxonomy-labelをクラス名にtaxonomy名を付与して出力（リンクあり）
+function taxonomies_label_link() {
+  if ($terms = get_the_terms(get_the_ID(), 'タクソノミー')) {
+    foreach ($terms as $term) {
+      echo ('<p ');
+      echo 'class="card__' . esc_attr($term->slug) . '"><a href="card__' . get_term_link($term->slug, 'タクソノミー') . '">';
+      echo esc_html($term->name);
+      echo ('</a></p>');
+    }
+  }
+}

@@ -38,3 +38,64 @@
     padding-block-start: calc(14 * var(--medium-fluid-ratio));
   }
 }
+
+/* ===============================================
+# 求人情報、お問い合わせのタイトル
+=============================================== */
+.page-header {
+  --_border-color: var(--color-blue);
+
+  block-size: 365px;
+  border-block-start: 1px solid var(--_border-color);
+
+  @include mq("md") {
+    block-size: calc(317 * var(--medium-fluid-ratio));
+  }
+}
+
+.page-header__title {
+  position: relative;
+  margin-inline-start: 27px;
+  letter-spacing: calc(calc(30 / 1000) * 1em);
+
+  @include mq("md") {
+    margin-inline-start: 0;
+  }
+}
+
+.page-header__sub-title {
+  margin-inline-start: 0.3em;
+  display: block;
+  position: absolute;
+  top: calc(-24px + -1em);
+  left: 0;
+  font-style: italic;
+  font-size: calc(16 * var(--rem-ratio));
+  line-height: calc(28 / 16);
+
+  @include mq("md") {
+    --_clamp-min: 16;
+    --_clamp-max: 20;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+    top: calc(calc(-26 * var(--medium-fluid-ratio)) + -1em);
+  }
+}
+
+.page-header__main-title {
+  display: block;
+  margin-block: var(--leading-trim);
+  font-family: var(--second-font);
+  font-weight: var(--regular);
+  font-size: calc(68 * var(--rem-ratio));
+  line-height: calc(119 / 68);
+
+  @include mq("md") {
+    --_clamp-min: 36;
+    --_clamp-max: 72;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+  }
+}

@@ -28,6 +28,14 @@ function my_script()
     wp_enqueue_style('news-style', get_stylesheet_directory_uri() . '/assets/css/news.min.css', array(), filemtime(get_theme_file_path('assets/css/news.min.css')));
   }
 
+  if (is_post_type_archive('recruit')) {
+    wp_enqueue_style('recruit-style', get_stylesheet_directory_uri() . '/assets/css/recruit.min.css', array(), filemtime(get_theme_file_path('assets/css/recruit.min.css')));
+  }
+
+  if (is_singular('recruit')) {
+    wp_enqueue_style('recruit-detail-style', get_stylesheet_directory_uri() . '/assets/css/recruit-detail.min.css', array(), filemtime(get_theme_file_path('assets/css/recruit-detail.min.css')));
+  }
+
   if (!is_home() && !is_front_page()) {
     // wp_enqueue_script('script-hamburger', get_theme_file_uri('/assets/js/hamburger.js'), array(), filemtime(get_theme_file_path('assets/js/hamburger.js')), true);
   }

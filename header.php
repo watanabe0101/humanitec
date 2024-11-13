@@ -29,6 +29,8 @@
     <?php elseif (is_singular()): ?>
     <?php elseif (is_post_type_archive('news')): ?>
       <title>お知らせ｜ユマニテク教育支援センター</title>
+    <?php elseif (is_post_type_archive('recruit')): ?>
+      <title>求人情報｜ユマニテク教育支援センター</title>
     <?php endif; ?>
     <!-- アーカイブページ、ターム別一覧ページ、カスタム投稿の各記事のtitleを個別に設定 -->
     <?php if (is_post_type_archive('news') || is_tax() || is_singular('カスタム投稿名')): ?>
@@ -52,6 +54,8 @@
       <meta name="description" content="<?php echo get_the_excerpt(); ?>">
     <?php elseif (is_post_type_archive('news')): ?>
       <meta name="description" content="ユマニテク教育支援センターの最新情報をお届けします。">
+    <?php elseif (is_post_type_archive('recruit')): ?>
+      <meta name="description" content="ユマニテク教育支援センターの求人情報です。">
     <?php endif; ?>
 
     <!-- og:title -->
@@ -173,7 +177,7 @@
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/about/')); ?>" class="header__link">法人概要</a></li>
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/news/')); ?>" class="header__link">お知らせ</a></li>
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/group/')); ?>" class="header__link">グループ法人</a></li>
-                  <li class="header__item"><a href="<?php echo esc_url(home_url('/')); ?>" class="header__link">求人情報</a></li>
+                  <li class="header__item"><a href="<?php echo esc_url(home_url('/recruit/')); ?>" class="header__link">求人情報</a></li>
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/')); ?>" class="header__link">アクセス</a></li>
                 </ul>
               </nav>
@@ -216,7 +220,7 @@
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/about/')); ?>" class="header__link">法人概要</a></li>
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/news/')); ?>" class="header__link">お知らせ</a></li>
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/group/')); ?>" class="header__link">グループ法人</a></li>
-                  <li class="header__item"><a href="<?php echo esc_url(home_url('/')); ?>" class="header__link">求人情報</a></li>
+                  <li class="header__item"><a href="<?php echo esc_url(home_url('/recruit/')); ?>" class="header__link">求人情報</a></li>
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/')); ?>" class="header__link">アクセス</a></li>
                 </ul>
               </nav>
@@ -249,7 +253,7 @@
               <a href="<?php echo esc_url(home_url('/group/')); ?>" class="headerDrawer__link">グループ法人<span class="headerDrawer__arrow arrow"></span></a>
             </li>
             <li class="headerDrawer__item">
-              <a href="<?php echo esc_url(home_url('/')); ?>" class="headerDrawer__link">求人情報<span class="headerDrawer__arrow arrow"></span></a>
+              <a href="<?php echo esc_url(home_url('/recruit/')); ?>" class="headerDrawer__link">求人情報<span class="headerDrawer__arrow arrow"></span></a>
             </li>
             <li class="headerDrawer__item">
               <a href="<?php echo esc_url(home_url('/')); ?>" class="headerDrawer__link">アクセス<span class="headerDrawer__arrow arrow"></span></a>

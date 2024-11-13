@@ -62,9 +62,11 @@
 =============================================== */
 .news-content {
   margin-block-start: 153px;
+  margin-block-end: 421px;
 
   @include mq("md") {
     margin-block-start: calc(101 * var(--medium-fluid-ratio));
+    margin-block-end: calc(302 * var(--medium-fluid-ratio));
   }
 }
 
@@ -146,79 +148,5 @@
       font-size: var(--_clamp);
       line-height: calc(43.5 / 26);
     }
-  }
-}
-
-/* ===============================================
-# ページネーション
-=============================================== */
-
-.custom-pagination {
-  margin-block-start: 93px;
-  margin-block-end: 421px;
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-
-  @include mq("md") {
-    margin-block-start: calc(35 * var(--medium-fluid-ratio));
-    margin-block-end: calc(302 * var(--medium-fluid-ratio));
-  }
-}
-
-.custom-pagination__link {
-  --_duration: 0.5s;
-  font-family: var(--third-font);
-  font-size: calc(16 * var(--rem-ratio));
-  font-weight: var(--bold);
-  letter-spacing: calc(calc(0 / 1000) * 1em);
-  color: var(--color-blue);
-  transition: opacity var(--_duration), outline-offset var(--_duration);
-  
-  &:hover {
-    @media (any-hover: hover) {
-      opacity: 0.6;
-    }
-  }
-  
-  &:focus-visible {
-    opacity: 0.6;
-  }
-
-  @include mq("md") {
-    --_clamp-min: 16;
-    --_clamp-max: 26;
-    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
-    
-    font-size: var(--_clamp);
-  }
-}
-
-.custom-pagination__prev-link {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  column-gap: 0.5em;
-  align-items: center;
-}
-
-.custom-pagination__next-link {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  column-gap: 0.5em;
-  align-items: center;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.custom-pagination__arrow {
-  --_inline-size: 26;
-
-  @include mq("md") {
-    --_clamp-min: 26;
-    --_clamp-max: 43;
-    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
-    
-    inline-size: var(--_clamp);
   }
 }

@@ -1,0 +1,160 @@
+@use "../../Object/Utility" as *;
+
+
+.recruit-content {
+  --_border-color: var(--color-blue);
+
+  padding-block-start: 203px;
+  padding-block-end: 433px;
+  background: linear-gradient(to top right, #D8EBED, #ECF6E7);
+  border-block-start: 1px solid var(--_border-color);
+
+  @include mq("md") {
+    padding-block-start: calc(102 * var(--medium-fluid-ratio));
+    padding-block-end: calc(262 * var(--medium-fluid-ratio));
+  }
+}
+
+.recruit-content__text {
+  font-family: var(--third-font);
+  font-weight: var(--regular);
+  font-size: calc(16 * var(--rem-ratio));
+  letter-spacing: calc(calc(50 / 1000) * 1em);
+
+  @include mq("md") {
+    --_clamp-min: 16;
+    --_clamp-max: 26;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+    line-height: calc(44 / 26);
+  }
+}
+
+.recruit-card {
+  margin-block-start: 177px;
+  display: block grid;
+  grid-template-columns: auto 1fr auto;
+  row-gap: 58px;
+
+  @include mq("md") {
+    margin-block-start: calc(81 * var(--medium-fluid-ratio));
+    row-gap: calc(21 * var(--medium-fluid-ratio));
+  }
+}
+
+.recruit-card__item {
+  display: contents;
+}
+
+.recruit-card__link {
+  --_border-color: #79BFC7;
+  --_duration: 0.5s;
+  
+  padding-block: 20px;
+  display: block grid;
+  grid-template-columns: subgrid;
+  grid-column: 1 / -1;
+  align-items: center;
+  column-gap: 25px;
+  border-block-end: 1px solid var(--_border-color);
+  font-family: var(--third-font);
+  font-weight: var(--regular);
+  transition: opacity var(--_duration), outline-offset var(--_duration);
+
+  @include mq("md") {
+    padding-block: calc(22 * var(--medium-fluid-ratio));
+    column-gap: calc(38 * var(--medium-fluid-ratio));
+  }
+
+  &:hover {
+    @media (any-hover: hover) {
+      opacity: 0.6;
+    }
+  }
+  
+  &:focus-visible {
+    opacity: 0.6;
+  }
+}
+
+.recruit-card__label {
+  display: flex;
+  column-gap: 5px;
+  font-size: calc(12 * var(--rem-ratio));
+  letter-spacing: calc(calc(50 / 1000) * 1em);
+  color: var(--color-white);
+
+  @include mq("md") {
+    --_clamp-min: 12;
+    --_clamp-max: 20;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+    flex-direction: column-reverse;
+    row-gap: calc(2 * var(--medium-fluid-ratio));
+  }
+}
+
+.recruit-card__full-time,
+.recruit-card__contract,
+.recruit-card__part {
+  inline-size: 58px;
+  text-align: center;
+
+  @include mq("md") {
+    inline-size: calc(96 * var(--medium-fluid-ratio));
+  }
+
+  @media screen and (max-width: 335px) {
+    inline-size: calc(105 * var(--medium-fluid-ratio));
+  }
+}
+
+.recruit-card__full-time {
+  background: var(--color-blue);
+}
+
+.recruit-card__contract {
+  background: #A0D280;
+}
+
+.recruit-card__part {
+  --_border-color: #79BFC7;
+  
+  outline: 1px solid var(--_border-color);
+  outline-offset: -1px;
+  background: var(--color-white);
+  color: var(--color-blue);
+}
+
+.recruit-card__urgent {
+  inline-size: 35px;
+  text-align: center;
+  background: #E44117;
+
+  @include mq("md") {
+    inline-size: calc(59 * var(--medium-fluid-ratio));
+  }
+}
+
+.recruit-card__title {
+  font-size: calc(20 * var(--rem-ratio));
+  letter-spacing: calc(calc(50 / 1000) * 1em);
+
+  @include mq("md") {
+    --_clamp-min: 20;
+    --_clamp-max: 26;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+    line-height: calc(41 / 26);
+  }
+}
+
+.recruit-card__arrow {
+  --_inline-size: 21;
+  --_background: #4C4C4C;
+
+  justify-self: end;
+}
