@@ -23,6 +23,18 @@ function my_script()
   if (is_page('about')) {
     wp_enqueue_style('about-style', get_stylesheet_directory_uri() . '/assets/css/about.min.css', array(), filemtime(get_theme_file_path('assets/css/about.min.css')));
   }
+
+  if (is_page('contact')) {
+    wp_enqueue_style('contact-style', get_stylesheet_directory_uri() . '/assets/css/contact.min.css', array(), filemtime(get_theme_file_path('assets/css/contact.min.css')));
+  }
+
+  if (is_page('confirm')) {
+    wp_enqueue_style('contact-style', get_stylesheet_directory_uri() . '/assets/css/contact.min.css', array(), filemtime(get_theme_file_path('assets/css/contact.min.css')));
+  }
+
+  if (is_page('thanks')) {
+    wp_enqueue_style('contact-style', get_stylesheet_directory_uri() . '/assets/css/contact.min.css', array(), filemtime(get_theme_file_path('assets/css/contact.min.css')));
+  }
   
   if (is_post_type_archive('news')) {
     wp_enqueue_style('news-style', get_stylesheet_directory_uri() . '/assets/css/news.min.css', array(), filemtime(get_theme_file_path('assets/css/news.min.css')));

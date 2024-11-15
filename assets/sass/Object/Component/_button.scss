@@ -40,3 +40,39 @@
   --_inline-size: 18;
   --_background: #2095A2;
 }
+
+.button {
+  --_background: var(--color-blue);
+  --_duration: 0.5s;
+
+  padding-block-start: 51px;
+  padding-block-end: 38px;
+  display: grid;
+  place-items: center;
+  font-style: italic;
+  font-size: calc(56 * var(--rem-ratio));
+  letter-spacing: calc(calc(30 / 1000) * 1em);
+  color: var(--color-white);
+  transition: all var(--_duration);
+  background-color: color-mix(in sRGB, var(--_background) var(--_opacity, 100%), transparent);
+
+  @include mq("md") {
+    --_clamp-min: 34;
+    --_clamp-max: 68;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+    padding-block-start: calc(44 * var(--medium-fluid-ratio));
+    padding-block-end: calc(28 * var(--medium-fluid-ratio));
+  }
+  
+  &:any-link:hover {
+    @media (any-hover: hover) {
+      --_opacity: 60%;
+    }
+  }
+  
+  &:focus-visible {
+    --_opacity: 60%;
+  }
+}

@@ -23,18 +23,19 @@
       <title>グループ法人｜ユマニテク教育支援センター</title>
     <?php elseif (is_page('about')): ?>
       <title>法人概要｜ユマニテク教育支援センター</title>
+    <?php elseif (is_page('contact')): ?>
+      <title>お問い合わせ｜ユマニテク教育支援センター</title>
+    <?php elseif (is_page('confirm')): ?>
+      <title>お問い合わせ｜ユマニテク教育支援センター</title>
     <?php elseif (is_category()): ?>
     <?php elseif (is_tag()): ?>
     <?php elseif (is_tax()): ?>
-    <?php elseif (is_singular()): ?>
+    <?php elseif (is_singular('recruit')): ?>
+      <title>求人情報｜ユマニテク教育支援センター</title>
     <?php elseif (is_post_type_archive('news')): ?>
       <title>お知らせ｜ユマニテク教育支援センター</title>
     <?php elseif (is_post_type_archive('recruit')): ?>
       <title>求人情報｜ユマニテク教育支援センター</title>
-    <?php endif; ?>
-    <!-- アーカイブページ、ターム別一覧ページ、カスタム投稿の各記事のtitleを個別に設定 -->
-    <?php if (is_post_type_archive('news') || is_tax() || is_singular('カスタム投稿名')): ?>
-      <title>お知らせ｜ユマニテク教育支援センター</title>
     <?php endif; ?>
 
     <!-- description -->
@@ -44,14 +45,22 @@
       <meta name="description" content=“ユマニテク教育支援センターは、愛知・三重で専門学校・短大、社会福祉施設などを運営する大橋学園グループの一員です。”>
     <?php elseif (is_page('about')): ?>
       <meta name="description" content=“ユマニテク教育支援センターの法人概要ページです。”>
+    <?php elseif (is_page('contact')): ?>
+      <meta name="description" content=“ユマニテク教育支援センターへのお問い合わせおよび求人申し込みはこちらから。”>
+    <?php elseif (is_page('confirm')): ?>
+      <meta name="description" content=“ユマニテク教育支援センターへのお問い合わせおよび求人申し込みはこちらから。”>
+    <?php elseif (is_page('about')): ?>
+      <meta name="description" content=“ユマニテク教育支援センターの法人概要ページです。”>
+    <?php elseif (is_page('about')): ?>
+      <meta name="description" content=“ユマニテク教育支援センターの法人概要ページです。”>
     <?php elseif (is_category()): ?>
       <meta name="description" content="<?php echo category_description(); ?>">
     <?php elseif (is_tag()): ?>
       <meta name="description" content="<?php echo tag_description(); ?>">
     <?php elseif (is_tax()): ?>
       <meta name="description" content=<?php echo tag_description(); ?>>
-    <?php elseif (is_singular()): ?>
-      <meta name="description" content="<?php echo get_the_excerpt(); ?>">
+    <?php elseif (is_singular('recruit')): ?>
+      <meta name="description" content="ユマニテク教育支援センターの求人情報です。">
     <?php elseif (is_post_type_archive('news')): ?>
       <meta name="description" content="ユマニテク教育支援センターの最新情報をお届けします。">
     <?php elseif (is_post_type_archive('recruit')): ?>
@@ -117,7 +126,7 @@
     <link rel="apple-touch-icon" href="<?php echo get_theme_file_uri('./assets/images/common/favicon/apple-touch-icon.png'); ?>" sizes="180x180">
     <link rel="icon" type="image/png" href="<?php echo get_theme_file_uri('./assets/images/common/favicon/web-app-manifest-192x192.png'); ?>" sizes="192x192">
 
-    <!-- canonical属性（ページャーがあるアーカイブページなどの類似ページがある場合、どのページをクロールさせるか指定する） -->
+    <!-- canonical属性（類似ページがある場合、どのページをクロールさせるか指定する） -->
     <!-- <link rel="canonical" href="④リンク（このページのURLを入力）"> -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -181,7 +190,7 @@
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/')); ?>" class="header__link">アクセス</a></li>
                 </ul>
               </nav>
-              <a href="<?php echo esc_url(home_url('/contact')); ?>" class="header__contact">
+              <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="header__contact">
                 <picture>
                   <source srcset="<?php echo get_theme_file_uri('/assets/images/header/header-contact.webp'); ?>" type="image/webp">
                   <img src="<?php echo get_theme_file_uri('/assets/images/header/header-contact.jpg'); ?>" alt="お問い合わせマーク">
@@ -224,7 +233,7 @@
                   <li class="header__item"><a href="<?php echo esc_url(home_url('/')); ?>" class="header__link">アクセス</a></li>
                 </ul>
               </nav>
-              <a href="<?php echo esc_url(home_url('/contact')); ?>" class="header__contact">
+              <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="header__contact">
                 <picture>
                   <source srcset="<?php echo get_theme_file_uri('/assets/images/header/header-contact.webp'); ?>" type="image/webp">
                   <img src="<?php echo get_theme_file_uri('/assets/images/header/header-contact.jpg'); ?>" alt="お問い合わせマーク">

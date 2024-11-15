@@ -234,6 +234,5 @@ get_header(); ?>
     </div>
   </section>
 </main>
-
 <!-- footer -->
 <?php get_footer(); ?>

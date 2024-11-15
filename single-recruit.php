@@ -118,7 +118,7 @@
       <div class="recruitDetail-footer">
         <p class="recruitDetail-footer__text">採用にご応募いただく方は、下記よりエントリーをお願いします。</p>
         <div class="recruitDetail-footer__button-wrapper">
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="recruitDetail-footer__button">ENTRY</a>
+          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="recruitDetail-footer__button button">ENTRY</a>
         </div>
         <!-- single-pagination -->
         <?php get_template_part('tmp/single-pagination'); ?>
