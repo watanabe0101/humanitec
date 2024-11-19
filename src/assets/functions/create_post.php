@@ -59,9 +59,11 @@ function change_posts_per_page($query)
     return;
   if ($query->is_archive('news')) { //カスタム投稿タイプを指定
     $query->set('posts_per_page', '3'); //表示件数を指定
-  }
-  if ($query->is_archive('recruit')) { //カスタム投稿タイプを指定
+    $query->set('paged', get_query_var('paged') ? get_query_var('paged') : 1);
+
+  } elseif ($query->is_archive('recruit')) { //カスタム投稿タイプを指定
     $query->set('posts_per_page', '10'); //表示件数を指定
+    $query->set('paged', get_query_var('paged') ? get_query_var('paged') : 1); // ページネーションを設定
   }
 }
 add_action('pre_get_posts', 'change_posts_per_page');
@@ -89,11 +91,14 @@ function custom_paginate_links($the_query, $paged)
       echo '<ul class="custom-pagination">';
       foreach ($links as $link) {
         if (strpos($link, 'prev') !== false) {
-          $link = preg_replace('/<a /', '<a class="custom-pagination__link custom-pagination__prev-link" ', $link); 
+          $link = preg_replace('/<a([^>]*?)class="[^"]*"/', '<a$1', $link);
+          $link = preg_replace('/<a/', '<a class="custom-pagination__link custom-pagination__prev-link"', $link);
         } elseif (strpos($link, 'next') !== false) {
-          $link = preg_replace('/<a /', '<a class="custom-pagination__link custom-pagination__next-link" ', $link);
+          $link = preg_replace('/<a([^>]*?)class="[^"]*"/', '<a$1', $link);
+          $link = preg_replace('/<a/', '<a class="custom-pagination__link custom-pagination__next-link"', $link);
         } else {
-          $link = preg_replace('/<a /', '<a class="custom-pagination__link" ', $link);
+          $link = preg_replace('/<a([^>]*?)class="[^"]*"/', '<a$1', $link);
+          $link = preg_replace('/<a/', '<a class="custom-pagination__link"', $link);
         }
 
         if (strpos($link, 'prev') !== false || strpos($link, 'next') !== false) {
@@ -129,11 +134,14 @@ function custom_paginate_recruit($the_query, $paged)
       echo '<ul class="custom-pagination">';
       foreach ($links as $link) {
         if (strpos($link, 'prev') !== false) {
-          $link = preg_replace('/<a /', '<a class="custom-pagination__link custom-pagination__prev-link" ', $link);
+          $link = preg_replace('/<a([^>]*?)class="[^"]*"/', '<a$1', $link);
+          $link = preg_replace('/<a/', '<a class="custom-pagination__link custom-pagination__prev-link"', $link);
         } elseif (strpos($link, 'next') !== false) {
-          $link = preg_replace('/<a /', '<a class="custom-pagination__link custom-pagination__next-link" ', $link);
+          $link = preg_replace('/<a([^>]*?)class="[^"]*"/', '<a$1', $link);
+          $link = preg_replace('/<a/', '<a class="custom-pagination__link custom-pagination__next-link"', $link);
         } else {
-          $link = preg_replace('/<a /', '<a class="custom-pagination__link" ', $link);
+          $link = preg_replace('/<a([^>]*?)class="[^"]*"/', '<a$1', $link);
+          $link = preg_replace('/<a/', '<a class="custom-pagination__link"', $link);
         }
 
         if (strpos($link, 'prev') !== false || strpos($link, 'next') !== false) {

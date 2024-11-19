@@ -9,11 +9,13 @@
 }
 
 .news-header__inner {
-  display: grid;
-  place-items: center;
+  padding-block-start: 158px;
+  padding-block-end: 184px;
   block-size: 447px;
 
   @include mq("md") {
+    padding-block-start: calc(87 * var(--medium-fluid-ratio));
+    padding-block-end: calc(121 * var(--medium-fluid-ratio));
     block-size: calc(318 * var(--medium-fluid-ratio));
   }
 }

@@ -111,7 +111,9 @@
   --_background: #E9F4F6;
 
   display: grid;
+  grid-template-columns: 1fr;
   align-items: center;
+  justify-content: start;
   background: var(--_background);
   border: 1px solid var(--_border-color);
   border-inline-start: none;
@@ -134,6 +136,7 @@
 .form__text,
 .form__select,
 .form__cell-wrap,
+.form__number,
 .form__textarea {
   --_min-padding-block: calc(15 * var(--medium-fluid-ratio));
   
@@ -170,8 +173,13 @@
   inline-size: 100%;
 }
 
+.form select {
+  color: var(--color-black);
+}
+
 .form__select {
   display: inline-flex;
+  display: flex;
   align-items: center;
   inline-size: 100%;
 
@@ -279,6 +287,33 @@
 
     @include mq("md") {
       top: calc(var(--_icon-size) / 1.35);
+    }
+    
+  }
+}
+
+.iPhone {
+  .form__radio:checked+.mwform-radio-field-text::after {
+    top: calc(var(--_icon-size) / 1.45);
+  }
+}
+
+/* Safari */
+_::-webkit-full-page-media, _:future, :root .form__radio:checked+.mwform-radio-field-text::after {
+  top: calc(var(--_icon-size) / 1.2);
+
+  @include mq("md") {
+    top: calc(var(--_icon-size) / 1.45);
+  }
+}
+
+/* Firefox */
+@-moz-document url-prefix() {
+  .form__radio:checked+.mwform-radio-field-text::after {
+    top: calc(var(--_icon-size) / 1.2);
+    
+    @include mq("md") {
+      top: calc(var(--_icon-size) / 1.3);
     }
   }
 }

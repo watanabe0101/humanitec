@@ -34,7 +34,7 @@
                     <?php taxonomies_label() ?>
                     <?php display_urgent_label(); ?>
                   </div>
-                  <p class="recruit-card__title"><?php the_title(); ?></p>
+                  <h2 class="recruit-card__title"><?php the_title(); ?></h2>
                   <span class="recruit-card__arrow arrow"></span>
                 </a>
               </article>

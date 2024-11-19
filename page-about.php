@@ -134,7 +134,7 @@ get_header(); ?>
       <!-- origin -->
       <div class="about-origin">
         <div class="about-origin__image">
-          <img src="<?php echo get_theme_file_uri( '/assets/images/about/about-origin.svg' ); ?>" alt="ユマニテクの由来" loading="lazy">
+          <img src="<?php echo get_theme_file_uri('/assets/images/about/about-origin.svg'); ?>" alt="ユマニテクの由来" loading="lazy">
         </div>
         <div class="about-origin__content">
           <p class="about-origin__text">

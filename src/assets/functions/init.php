@@ -121,3 +121,21 @@ function disable_autop_on_specific_page($content) {
 }
 add_filter('the_content', 'disable_autop_on_specific_page', 0);
 add_filter('the_excerpt', 'disable_autop_on_specific_page', 0);
+
+
+// WordPressでwp_enqueue系の<style>や<script>から[type属性]を削除。
+function custom_theme_setup()
+{
+  add_theme_support('html5', array('style', 'script'));
+}
+add_action('after_setup_theme', 'custom_theme_setup');
+
+
+// wp-block-libraryのid重複を避ける
+add_filter('style_loader_tag', function ($html, $handle) {
+  if ($handle === 'wp-block-library') {
+    // IDを削除
+    return str_replace("id='wp-block-library-css'", '', $html);
+  }
+  return $html;
+}, 10, 2);

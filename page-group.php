@@ -14,12 +14,10 @@ get_header(); ?>
       <div class="group-fv__image"></div>
       <h1 class="group-fv__title">
         <picture>
-          <picture>
-            <source srcset="<?php echo get_theme_file_uri('/assets/images/group/group-fv-sp.webp'); ?>" type="image/webp" media="(max-width: 767px)">
-            <source srcset="<?php echo get_theme_file_uri('/assets/images/group/group-fv-sp.jpg'); ?>" media="(max-width: 767px)">
-            <source srcset="<?php echo get_theme_file_uri('/assets/images/group/group-fv.webp'); ?>" type="image/webp">
-            <img src="<?php echo get_theme_file_uri('/assets/images/group/group-fv.jpg'); ?>" alt="グループ法人【大橋学園グループ】" loading="lazy">
-          </picture>
+          <source srcset="<?php echo get_theme_file_uri('/assets/images/group/group-fv-sp.webp'); ?>" type="image/webp" media="(max-width: 767px)">
+          <source srcset="<?php echo get_theme_file_uri('/assets/images/group/group-fv-sp.jpg'); ?>" media="(max-width: 767px)">
+          <source srcset="<?php echo get_theme_file_uri('/assets/images/group/group-fv.webp'); ?>" type="image/webp">
+          <img src="<?php echo get_theme_file_uri('/assets/images/group/group-fv.jpg'); ?>" alt="グループ法人【大橋学園グループ】" loading="lazy">
         </picture>
       </h1>
     </div>

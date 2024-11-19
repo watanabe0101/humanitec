@@ -42,67 +42,39 @@
 }
 
 /* ===============================================
-# フワッと出現
+# フェードのSP設定
 =============================================== */
-// フェードイン
-.js-fadeIn {
-  opacity: 0;
+.js-fadeIn-sp,
+.js-fadeUp-sp,
+.js-fadeDown-sp,
+.js-fadeLeft-sp,
+.js-fadeRight-sp {
+  @include mq("md") {
+    opacity: 0;
+  }
+
   &.js-show {
-    animation: fadeIn 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+    animation: none;
+    @include mq("md") {
+      animation: fadeUp 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+      animation-delay: 0s;
+    }
   }
 }
 
-.js-fadeIn0ms {
-  opacity: 0;
-  
-  &.js-show {
-    animation: fadeIn 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  }
-}
-
-.js-fadeIn300ms {
-  opacity: 0;
-  
-  &.js-show {
-    animation: fadeIn 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.3s, 0.3s;
-  }
-}
-
-.js-fadeIn600ms {
-  opacity: 0;
-  
-  &.js-show {
-    animation: fadeIn 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.6s, 0.6s;
-  }
-}
-
-.js-fadeIn900ms {
-  opacity: 0;
-  
-  &.js-show {
-    animation: fadeIn 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.9s, 0.9s;
-  }
-}
-
-.js-fadeIn--delay {
-  opacity: 0;
-  &.js-show--delay {
-    animation: fadeIn 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  }
-}
-
-// 下から
-.js-fadeUp {
-  opacity: 0;
-  &.js-show {
-    animation: fadeUp 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  }
-}
-
-.js-fadeUp0ms {
+/* ===============================================
+# フェードアップ
+=============================================== */
+.js-fadeUp,
+.js-fadeUp0ms,
+.js-fadeUp300ms,
+.js-fadeUp600ms,
+.js-fadeUp900ms,
+.js-fadeUp-sp,
+.js-fadeUp-sp0ms,
+.js-fadeUp-sp300ms,
+.js-fadeUp-sp600ms,
+.js-fadeUp-sp900ms {
   opacity: 0;
   &.js-show {
     animation: fadeUp 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
@@ -110,231 +82,67 @@
 }
 
 .js-fadeUp300ms {
-  opacity: 0;
-
   &.js-show {
-    animation: fadeUp 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.3s, 0.3s;
+    animation-delay: 0.5s, 0.5s; // ここはそれぞれの遅延に応じて変更
+    
+    @include mq("md") {
+      animation-delay: 0s;
+    }
   }
 }
 
 .js-fadeUp600ms {
-  opacity: 0;
   &.js-show {
-    animation: fadeUp 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.6s, 0.6s;
+    animation-delay: 1s, 1s; // ここはそれぞれの遅延に応じて変更
+
+    @include mq("md") {
+      animation-delay: 0s;
+    }
   }
 }
 
 .js-fadeUp900ms {
-  opacity: 0;
-
   &.js-show {
-    animation: fadeUp 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.9s, 0.9s;
+    animation-delay: 1.5s, 1.5s; // ここはそれぞれの遅延に応じて変更
+
+    @include mq("md") {
+      animation-delay: 0s;
+    }
   }
 }
 
-.js-fadeUp--delay {
-    opacity: 0;
-  &.js-show--delay {
-    animation: fadeUp 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+.js-fadeUp-sp300ms {
+  @include mq("md") {
+    &.js-show {
+      animation-delay: 0.5s, 0.5s; // ここはそれぞれの遅延に応じて変更
+    }
+  }
+}
+.js-fadeUp-sp600ms {
+  @include mq("md") {
+    &.js-show {
+      animation-delay: 1s, 1s; // ここはそれぞれの遅延に応じて変更
+    }
+  }
+}
+.js-fadeUp-sp300ms {
+  @include mq("md") {
+    &.js-show {
+      animation-delay: 1.5s, 1.5s; // ここはそれぞれの遅延に応じて変更
+    }
   }
 }
 
-// 上から
-.js-fadeDown {
-  opacity: 0;
-
-  &.js-show {
-    animation: fadeDown 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  }
-}
-
-.js-fadeDown0ms {
-  opacity: 0;
-
-  &.js-show {
-    animation: fadeDown 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  }
-}
-
-.js-fadeDown300ms {
-  opacity: 0;
-
-  &.js-show {
-    animation: fadeDown 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.3s, 0.3s;
-  }
-}
-
-.js-fadeDown600ms {
-  opacity: 0;
-
-  &.js-show {
-    animation: fadeDown 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.6s, 0.6s;
-  }
-}
-
-.js-fadeDown900ms {
-  opacity: 0;
-
-  &.js-show {
-    animation: fadeDown 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.9s, 0.9s;
-  }
-}
-
-// 左から
-.js-fadeLeft {
-  opacity: 0;
-  &.js-show {
-    animation: fadeLeft 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  }
-}
-
-.js-fadeLeft0ms {
-  opacity: 0;
-  &.js-show {
-    animation: fadeLeft 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  }
-}
-
-.js-fadeLeft300ms {
-  opacity: 0;
-  &.js-show {
-    animation: fadeLeft 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.3s, 0.3s;
-  }
-}
-
-.js-fadeLeft600ms {
-  opacity: 0;
-  &.js-show {
-    animation: fadeLeft 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.6s, 0.6s;
-  }
-}
-
-.js-fadeLeft600ms {
-  opacity: 0;
-  &.js-show {
-    animation: fadeLeft 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.9s, 0.9s;
-  }
-}
-
-.js-fadeLeft--delay {
-    opacity: 0;
-  &.js-show--delay {
-    animation: fadeLeft 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.9s, 0.9s;
-  }
-}
-
-// 右から
-.js-fadeRight {
-  opacity: 0;
-  &.js-show {
-    animation: fadeRight 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  }
-}
-
-.js-fadeRight0ms {
-  opacity: 0;
-  &.js-show {
-    animation-delay: 0ms;
-    animation: fadeRight 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  }
-}
-
-.js-fadeRight300ms {
-  opacity: 0;
-  &.js-show {
-    animation-delay: 300ms;
-    animation: fadeRight 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.3s, 0.3s;
-  }
-}
-
-.js-fadeRight600ms {
-  opacity: 0;
-  &.js-show {
-    animation: fadeRight .55s ease forwards;
-    animation-delay: 600ms;
-    animation: fadeRight 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.6s, 0.6s;
-  }
-}
-
-.js-fadeRight900ms {
-  opacity: 0;
-  &.js-show {
-    animation: fadeRight .55s ease forwards;
-    animation-delay: 900ms;
-    animation: fadeRight 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-    animation-delay: 0.9s, 0.9s;
-  }
-}
-
-.js-fadeRight--delay {
-    opacity: 0;
-  &.js-show--delay {
-    animation: fadeRight 1.5s ease forwards, opacity 1.5s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
+/* ===============================================
+# フェードのアニメーション定義
+=============================================== */
 @keyframes fadeUp {
   0% {
+    opacity: 0;
     transform: translateY(40px);
   }
   100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeDown {
-  0% {
-    transform: translateY(-40px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeLeft {
-  0% {
-    transform: translateX(-40px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes fadeRight {
-  0% {
-    transform: translateX(40px);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes opacity {
-  0% {
-    opacity: 0;
-  }
-  100% {
     opacity: 1;
+    transform: translateY(0);
   }
 }

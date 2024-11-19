@@ -88,7 +88,8 @@
   display: grid;
   place-items: center;
   block-size: 100%;
-  font-family: "Noto Sans JP", sans-serif;
+  font-family: var(--third-font);
+  font-weight: var(--regular);
   font-size: calc(14 * var(--rem-ratio));
   line-height: calc(24.5 / 14);
 }
@@ -266,6 +267,8 @@
   --_max-layout-width: 640;
   --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
   font-size: var(--_clamp);
+  font-weight: var(--regular);
+  font-family: var(--third-font);
   letter-spacing: calc(calc(30 / 1000) * 1em);
   border-block-start: 1px var(--color-blue2) solid;
 }

@@ -36,10 +36,10 @@ get_header(); ?>
           <?php if ($the_query->have_posts()): ?>
             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
               <li class="news__item">
-                <a href="<?php echo esc_url(home_url('/news/')); ?>" class="news__link">
+                <a href="<?php echo esc_url(home_url('/news/')); ?>" class="news__link js-fadeUp">
                   <article>
                     <p class="news__date"><?php the_time('Y.m.d') ?></p>
-                    <p class="news__title"><?php the_title(); ?></p>
+                    <h2 class="news__title"><?php the_title(); ?></h2>
                     <span class="news__arrow arrow"></span>
                   </article>
                 </a>
@@ -54,10 +54,10 @@ get_header(); ?>
       </div>
     </div>
     <!-- about -->
-    <section class="about">
+    <section class="about js-delay">
       <div class="about__inner inner-shrink">
         <div class="about__content">
-          <div class="about__wrapper">
+          <div class="about__wrapper js-fadeUp0ms js-fadeUp-sp">
             <h2 class="about__title">About US</h2>
             <p class="about__description">
               ユマニテク教育支援センターは、三重県四日市市で介護福祉士実務者研修や保育専門研修、介護外国人人材集合研修や外国人（技能実習生／特定技能外国人）向け日本語研修など、キャリアアップのための教育研修事業を行っております。<br>
@@ -66,7 +66,7 @@ get_header(); ?>
             </p>
             <a href="<?php echo esc_url(home_url('/about/')); ?>" class="about__link more-link">View more<span class="more-link__arrow arrow"></span></a>
           </div>
-          <div class="about__image1">
+          <div class="about__image1 js-fadeUp300ms js-fadeUp-sp">
             <picture>
               <source srcset="<?php echo get_theme_file_uri('/assets/images/top/about/about-img1.webp'); ?>" type="image/webp">
               <img src="<?php echo get_theme_file_uri('/assets/images/top/about/about-img1.jpg'); ?>" alt="介護福祉士実務者研修をしている様子" loading="lazy">
@@ -77,11 +77,11 @@ get_header(); ?>
         <div class="about__image-wrapper">
           <picture>
             <source srcset="<?php echo get_theme_file_uri('/assets/images/top/about/about-img2.webp'); ?>" type="image/webp">
-            <img src="<?php echo get_theme_file_uri('/assets/images/top/about/about-img2.jpg'); ?>" alt="男女がテーブルを囲んでディスカッションをしている" loading="lazy">
+            <img src="<?php echo get_theme_file_uri('/assets/images/top/about/about-img2.jpg'); ?>" alt="男女がテーブルを囲んでディスカッションをしている" loading="lazy" class=" js-fadeUp600ms js-fadeUp-sp">
           </picture>
           <picture>
             <source srcset="<?php echo get_theme_file_uri('/assets/images/top/about/about-img3.webp'); ?>" type="image/webp">
-            <img src="<?php echo get_theme_file_uri('/assets/images/top/about/about-img3.jpg'); ?>" alt="講師の女性が授業を行っている様子" loading="lazy">
+            <img src="<?php echo get_theme_file_uri('/assets/images/top/about/about-img3.jpg'); ?>" alt="講師の女性が授業を行っている様子" loading="lazy" class=" js-fadeUp900ms js-fadeUp-sp">
           </picture>
         </div>
 
@@ -89,18 +89,18 @@ get_header(); ?>
     </section>
   </div><!-- front-bc -->
   <!-- service -->
-  <section class="service">
+  <section id="service" class="service">
     <div class="service__inner">
-      <h2 class="service__title title">
+      <h2 class="service__title title js-fadeUp">
         <span class="service__sub-title sub-title">Service</span>
         <span class="service__main-title main-title">事業紹介</span>
       </h2>
-      <p class="service__logo">
+      <p class="service__logo js-fadeUp">
         <img src="<?php echo get_theme_file_uri('/assets/images/top/service/service-logo.svg'); ?>" alt="社会人向け 教育研修事業 ユマニテクキャリアアカデミー" loading="lazy">
       </p>
-      <ul class="service__grid">
-        <li class="service__item">
-          <a href="<?php echo esc_url(home_url('/')); ?>" class="service__link">
+      <ul class="service__grid js-delay">
+        <li class="service__item js-fadeUp0ms js-fadeUp-sp">
+          <a href="<?php echo esc_url(home_url('/career-academy/')); ?>" class="service__link">
             <picture>
               <source srcset="<?php echo get_theme_file_uri('/assets/images/top/service/service-img1.webp'); ?>" type="image/webp">
               <img src="<?php echo get_theme_file_uri('/assets/images/top/service/service-img1.jpg'); ?>" alt="介護福祉士実務者研修の様子" loading="lazy">
@@ -110,8 +110,8 @@ get_header(); ?>
             </div>
           </a>
         </li>
-        <li class="service__item">
-          <a href="<?php echo esc_url(home_url('/')); ?>" class="service__link">
+        <li class="service__item js-fadeUp300ms js-fadeUp-sp">
+          <a href="<?php echo esc_url(home_url('/career-academy/itaku/')); ?>" class="service__link">
             <picture>
               <source srcset="<?php echo get_theme_file_uri('/assets/images/top/service/service-img2.webp'); ?>" type="image/webp">
               <img src="<?php echo get_theme_file_uri('/assets/images/top/service/service-img2.jpg'); ?>" alt="保育士の女性が子どもに対してにこやかに話しかけている" loading="lazy">
@@ -121,8 +121,8 @@ get_header(); ?>
             </div>
           </a>
         </li>
-        <li class="service__item">
-          <a href="<?php echo esc_url(home_url('/')); ?>" class="service__link">
+        <li class="service__item js-fadeUp600ms js-fadeUp-sp">
+          <a href="<?php echo esc_url(home_url('/career-academy/f-kaigo/')); ?>" class="service__link">
             <picture>
               <source srcset="<?php echo get_theme_file_uri('/assets/images/top/service/service-img3.webp'); ?>" type="image/webp">
               <img src="<?php echo get_theme_file_uri('/assets/images/top/service/service-img3.jpg'); ?>" alt="外国人の男女四人が並んで歩いている" loading="lazy">
@@ -132,7 +132,7 @@ get_header(); ?>
             </div>
           </a>
         </li>
-        <li class="service__item">
+        <li class="service__item js-fadeUp900ms js-fadeUp-sp">
           <picture>
             <source srcset="<?php echo get_theme_file_uri('/assets/images/top/service/service-img4.webp'); ?>" type="image/webp">
             <img src="<?php echo get_theme_file_uri('/assets/images/top/service/service-img4.jpg'); ?>" alt="外国人が日本語研修を受けている" loading="lazy">
@@ -144,8 +144,8 @@ get_header(); ?>
       </ul>
     </div>
     <div class="other">
-      <p class="other__title">その他の事業</p>
-      <div class="other__content">
+      <p class="other__title js-fadeUp">その他の事業</p>
+      <div class="other__content js-fadeUp">
         <div class="other__inner">
           <ul class="other__list">
             <li class="other__item">教育コンテンツ制作事業</li>
@@ -161,28 +161,28 @@ get_header(); ?>
   <!-- group -->
   <section class="group">
     <div class="group__inner inner">
-      <h2 class="group__title title">
+      <h2 class="group__title title js-fadeUp">
         <span class="group__sub-title sub-title">Group</span>
         <span class="group__main-title main-title">グループ法人</span>
       </h2>
-      <div class="group__image">
-        <a href="<?php echo esc_url(home_url('/')); ?>" class="group__link">
+      <div class="group__image js-fadeUp">
+        <a href="<?php echo esc_url(home_url('/group/')); ?>" class="group__link">
           <picture>
             <source srcset="<?php echo get_theme_file_uri('/assets/images/top/group/group-img.webp'); ?>" type="image/webp">
             <img src="<?php echo get_theme_file_uri('/assets/images/top/group/group-img.jpg'); ?>" alt="大橋学園グループのイメージ画像" loading="lazy">
           </picture>
         </a>
       </div>
-      <div class="group__footer">
+      <div class="group__footer js-fadeUp">
         <p class="group__text">ユマニテク教育支援センターは大橋学園グループの一員です。</p>
-        <a href="<?php echo esc_url(home_url('/about/')); ?>" class="group__more more-link">View more<span class="more-link__arrow arrow"></span></a>
+        <a href="<?php echo esc_url(home_url('/group/')); ?>" class="group__more more-link">View more<span class="more-link__arrow arrow"></span></a>
       </div>
     </div>
   </section>
   <!-- recruit -->
-  <div class="recruit">
+  <div class="recruit js-fadeUp">
     <div class="recruit__inner shrink__inner">
-      <a href="<?php echo esc_url(home_url('/about/')); ?>" class="recruit__link">
+      <a href="<?php echo esc_url(home_url('/recruit/')); ?>" class="recruit__link">
         <div class="recruit__left">
           <div class="recruit__wrapper">
             <p class="recruit__title">
@@ -202,7 +202,7 @@ get_header(); ?>
     </div>
   </div>
   <!-- access -->
-  <section class="access">
+  <section id="access" class="access js-fadeUp">
     <div class="access__inner inner">
       <h2 class="access__title">Access</h2>
       <div class="access__content">

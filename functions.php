@@ -7,9 +7,7 @@ $function_files = [
   '/src/assets/functions/load.php',
   '/src/assets/functions/init.php',
   '/src/assets/functions/load_css_async.php',
-  '/src/assets/functions/custom_breadcrumb.php',
   '/src/assets/functions/create_post.php',
-  '/src/assets/functions/media_fields.php',
   '/src/assets/functions/recruit_fields.php',
   '/src/assets/functions/custom_labels.php',
 ];

@@ -1,14 +1,71 @@
 @use "../../Object/Utility" as *;
 
+
 .error-404 {
-  margin-top: 300px;
+  margin-block-start: 200px;
+
+  @include mq("md") {
+    margin-block-start: calc(200 * var(--medium-fluid-ratio));
+  }
 }
 
 .error-404__title {
-  text-align: center;
-  font-size: 50px;
+  inline-size: fit-content;
+  margin-inline: auto;
+  font-family: var(--third-font);
+  font-size: calc(70 * var(--rem-ratio));
+
+  @include mq("md") {
+    --_clamp-min: 36;
+    --_clamp-max: 70;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+  }
 }
 
-.error-404__outer {
-  margin-top: 100px;
+.error-404__text {
+  margin-block-start: 50px;
+  font-size: calc(16 * var(--rem-ratio));
+  text-align: center;
+  text-wrap: balance;
+
+  @include mq("md") {
+    --_clamp-min: 26;
+    --_clamp-max: 16;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+    margin-block-start: calc(50 * var(--medium-fluid-ratio));
+  }
+}
+
+.error-404__link {
+  --_duration: 0.5s;
+  
+  display: block;
+  margin-block-start: 100px;
+  inline-size: fit-content;
+  margin-inline: auto;
+  font-size: calc(30 * var(--rem-ratio));
+  transition: opacity var(--_duration), outline-offset var(--_duration);
+
+  @include mq("md") {
+    --_clamp-min: 40;
+    --_clamp-max: 20;
+    --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
+    
+    font-size: var(--_clamp);
+    margin-block-start: calc(100 * var(--medium-fluid-ratio));
+  }
+
+  &:hover {
+    @media (any-hover: hover) {
+      opacity: 0.6;
+    }
+  }
+  
+  &:focus-visible {
+    opacity: 0.6;
+  }
 }

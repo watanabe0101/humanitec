@@ -21,7 +21,7 @@ get_header(); ?>
       <?php echo do_shortcode('[mwform_formkey key="68"]'); ?>
       <!-- form -->
       <p class="contact-content__text">
-        ご入力いただいた個人情報は、お問い合わせの対応のみに使用し、他の目的に利用することはございません。また、ご本人様の同意なしにいただいた個人情報を第三者に提供することはありません。プライバシーポリシーは<a href="<?php echo get_theme_file_uri('/assets/pdf/privacy.pdf'); ?>" class="contact-content__link">こちら</a>をご確認ください。
+        ご入力いただいた個人情報は、お問い合わせの対応のみに使用し、他の目的に利用することはございません。また、ご本人様の同意なしにいただいた個人情報を第三者に提供することはありません。プライバシーポリシーは<a href="<?php echo get_theme_file_uri('/assets/pdf/privacy.pdf'); ?>" target="_blank" rel="noopener" class="contact-content__link">こちら</a>をご確認ください。
       </p>
     </div>
   </div>

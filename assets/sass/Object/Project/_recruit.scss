@@ -139,6 +139,7 @@
 }
 
 .recruit-card__title {
+  font-weight: var(--regular);
   font-size: calc(20 * var(--rem-ratio));
   letter-spacing: calc(calc(50 / 1000) * 1em);
 

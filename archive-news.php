@@ -28,7 +28,7 @@
           while ($the_query->have_posts()) : $the_query->the_post(); ?>
             <li class="news-card__item">
               <article>
-                <p class="news-card__date"><?php the_time('Y.m.d') ?></p>
+                <h2 class="news-card__date"><?php the_time('Y.m.d') ?></h2>
                 <p class="news-card__title"><?php the_title(); ?></p>
                 <div class="news-card__content"><?php the_content(); ?></div>
               </article>
