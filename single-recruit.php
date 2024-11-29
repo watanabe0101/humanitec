@@ -120,9 +120,6 @@
         <div class="recruitDetail-footer__button-wrapper">
           <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="recruitDetail-footer__button button">ENTRY</a>
         </div>
-        <!-- single-pagination -->
-        <?php get_template_part('tmp/single-pagination'); ?>
-        <!-- single-pagination -->
       </div>
     </div>
   </div>

@@ -45,20 +45,6 @@ function my_filter_rest_endpoints($endpoints)
 add_filter('rest_endpoints', 'my_filter_rest_endpoints', 10, 1);
 
 
-// ダッシュボードを非表示
-function remove_dashboard_widgets()
-{
-  remove_action('welcome_panel', 'wp_welcome_panel');
-  remove_meta_box('dashboard_php_nag', 'dashboard', 'normal');
-  remove_meta_box('dashboard_site_health', 'dashboard', 'normal');
-  remove_meta_box('dashboard_activity', 'dashboard', 'normal');
-  remove_meta_box('dashboard_right_now', 'dashboard', 'normal');
-  remove_meta_box('dashboard_quick_press', 'dashboard', 'side');
-  remove_meta_box('dashboard_primary', 'dashboard', 'side'); 
-}
-add_action('wp_dashboard_setup', 'remove_dashboard_widgets');
-
-
 
 // 固定ページで「抜粋」を有効化
 add_post_type_support('page', 'excerpt');
@@ -139,3 +125,12 @@ add_filter('style_loader_tag', function ($html, $handle) {
   }
   return $html;
 }, 10, 2);
+
+// コンタクトページでキャッシュ無効化
+function set_nocache_headers()
+{
+  if (is_page('contact')) {
+    nocache_headers();
+  }
+}
+add_action('template_redirect', 'set_nocache_headers');

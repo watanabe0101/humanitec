@@ -36,10 +36,10 @@ get_header(); ?>
           <?php if ($the_query->have_posts()): ?>
             <?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
               <li class="news__item">
-                <a href="<?php echo esc_url(home_url('/news/')); ?>" class="news__link js-fadeUp">
+                <a href="<?php the_permalink(); ?>" class="news__link js-fadeUp">
                   <article>
                     <p class="news__date"><?php the_time('Y.m.d') ?></p>
-                    <h2 class="news__title"><?php the_title(); ?></h2>
+                    <h2 class="news__title limited-text"><?php the_title(); ?></h2>
                     <span class="news__arrow arrow"></span>
                   </article>
                 </a>
@@ -65,6 +65,12 @@ get_header(); ?>
               さまざまな教育活動をサポートし、みなさんの「学びたい」をしっかりと支援していきます。
             </p>
             <a href="<?php echo esc_url(home_url('/about/')); ?>" class="about__link more-link">View more<span class="more-link__arrow arrow"></span></a>
+            <div class="about__image2 js-fadeUp600ms js-fadeUp-sp">
+              <picture>
+                <source srcset="<?php echo get_theme_file_uri('/assets/images/top/about/about-img2.webp'); ?>" type="image/webp">
+                <img src="<?php echo get_theme_file_uri('/assets/images/top/about/about-img2.jpg'); ?>" alt="男女がテーブルを囲んでディスカッションをしている" loading="lazy">
+              </picture>
+            </div>
           </div>
           <div class="about__image1 js-fadeUp300ms js-fadeUp-sp">
             <picture>
@@ -203,7 +209,7 @@ get_header(); ?>
   </div>
   <!-- access -->
   <section id="access" class="access js-fadeUp">
-    <div class="access__inner inner">
+    <div class="access__inner inner anchor">
       <h2 class="access__title">Access</h2>
       <div class="access__content">
         <div class="access__map">

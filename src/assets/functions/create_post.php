@@ -52,6 +52,43 @@ function create_recruit()
 }
 
 
+// パーマリンクにランダムな数字を生成・保存する関数
+add_action('save_post', function ($post_id) {
+  // 自動保存やリビジョンの更新を避ける
+  if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+    return;
+  }
+
+  // 投稿タイプが "page" でない場合のみ実行
+  if (get_post_type($post_id) !== 'page') {
+    // 現在のスラッグを取得
+    $current_slug = get_post_field('post_name', $post_id);
+
+    // スラッグがランダムな数字でない場合に更新
+    if (!preg_match('/^[0-9]{8}$/', $current_slug)) {
+      // ランダムな8桁の数字を生成
+      $new_slug = makeRandStr(8);
+      wp_update_post([
+        'ID' => $post_id,
+        'post_name' => $new_slug,
+      ]);
+    }
+  }
+});
+
+function makeRandStr($length = 8)
+{
+  static $chars = '0123456789';
+  $str = '';
+  for ($i = 0; $i < $length; ++$i) {
+    $str .= $chars[mt_rand(0, 9)];
+  }
+  return $str;
+}
+
+
+
+
 // 一覧画面の表示件数を変更
 function change_posts_per_page($query)
 {

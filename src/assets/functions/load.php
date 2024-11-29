@@ -24,15 +24,7 @@ function my_script()
     wp_enqueue_style('about-style', get_stylesheet_directory_uri() . '/assets/css/about.min.css', array(), filemtime(get_theme_file_path('assets/css/about.min.css')));
   }
 
-  if (is_page('contact')) {
-    wp_enqueue_style('contact-style', get_stylesheet_directory_uri() . '/assets/css/contact.min.css', array(), filemtime(get_theme_file_path('assets/css/contact.min.css')));
-  }
-
-  if (is_page('confirm')) {
-    wp_enqueue_style('contact-style', get_stylesheet_directory_uri() . '/assets/css/contact.min.css', array(), filemtime(get_theme_file_path('assets/css/contact.min.css')));
-  }
-
-  if (is_page('thanks')) {
+  if (is_page('contact') or is_page('confirm') or is_page('thanks')) {
     wp_enqueue_style('contact-style', get_stylesheet_directory_uri() . '/assets/css/contact.min.css', array(), filemtime(get_theme_file_path('assets/css/contact.min.css')));
   }
   
@@ -46,6 +38,10 @@ function my_script()
 
   if (is_singular('recruit')) {
     wp_enqueue_style('recruit-detail-style', get_stylesheet_directory_uri() . '/assets/css/recruit-detail.min.css', array(), filemtime(get_theme_file_path('assets/css/recruit-detail.min.css')));
+  }
+
+  if (is_singular('news')) {
+    wp_enqueue_style('news-style', get_stylesheet_directory_uri() . '/assets/css/news.min.css', array(), filemtime(get_theme_file_path('assets/css/news.min.css')));
   }
 
   if (is_404()) {

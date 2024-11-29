@@ -24,7 +24,7 @@
 .main-title {
   display: block;
   margin-block: var(--leading-trim);
-  padding-block-start: 16px;
+  padding-block-start: 6px;
   font-family: var(--second-font);
   font-size: calc(48 * var(--rem-ratio));
   line-height: 1;
@@ -35,7 +35,7 @@
     --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
     
     font-size: var(--_clamp);
-    padding-block-start: calc(14 * var(--medium-fluid-ratio));
+    padding-block-start: calc(6 * var(--medium-fluid-ratio));
   }
 }
 

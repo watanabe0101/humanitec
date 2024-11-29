@@ -6,10 +6,14 @@
   position: relative;
   overflow: hidden;
   inline-size: 100%;
-  block-size: calc(100svb - var(--header-block-size));
+  block-size: calc(900 * var(--max-fluid-ratio));
+  background-size: cover;
+  aspect-ratio: 1600/900;
 
   @include mq("md") {
-    block-size: calc(100svb - var(--sp-header-block-size));
+    // block-size: calc(100svb - var(--sp-header-block-size));
+    block-size: calc(890 * var(--medium-fluid-ratio));
+    aspect-ratio: 640/890;
   }
 }
 
@@ -112,10 +116,15 @@
   grid-template-columns: subgrid;
   align-items: center;
   grid-column: 1 / -1;
+  block-size: 120px;
   border-block-end: 1px solid var(--color-gray);
   color: var(--color-black);
   font-family: "Noto Sans JP", sans-serif;
   transition: opacity var(--_duration), outline-offset var(--_duration);
+
+  @include mq("md") {
+    block-size: 114px;
+  }
   
   &:hover {
     @media (any-hover: hover) {
@@ -165,7 +174,7 @@
 
 .news__title {
   margin-block: var(--leading-trim);
-  padding-block: 51px;
+  padding-inline-end: 20px;
   margin-inline-start: 75px;
   font-family: var(--third-font);
   font-size: calc(18 * var(--rem-ratio));
@@ -174,14 +183,19 @@
   line-height: calc(31.5 / 18);
   font-feature-settings: "palt";
 
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+
   @include mq("md") {
     --_clamp: clamp(var(--_clamp-min) * var(--rem-ratio), (var(--_clamp-min) - (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * var(--_min-layout-width)) * var(--rem-ratio) + (var(--_clamp-max) - var(--_clamp-min)) / (var(--_max-layout-width) - var(--_min-layout-width)) * 100dvi, var(--_clamp-max) * var(--rem-ratio));
     --_clamp-min: 16;
     --_clamp-max: 26;
     
     font-size: var(--_clamp);
-    padding-block: calc(26 * var(--medium-fluid-ratio));
     margin-inline-start: calc(25 * var(--medium-fluid-ratio));
+    padding-inline-end: calc(25 * var(--medium-fluid-ratio));
     line-height: calc(36 / 26);
   }
 }
@@ -256,6 +270,7 @@
 
 .about__wrapper {
   margin-inline-start: 30px;
+  position: relative;
 
   @include mq("md") {
     margin-inline-start: 0;
@@ -280,7 +295,7 @@
 
 .about__description {
   margin-block: var(--leading-trim);
-  padding-block-start: 36px;
+  padding-block-start: 25px;
   font-family: var(--third-font);
   font-weight: var(--regular);
   font-size: calc(16 * var(--rem-ratio));
@@ -290,7 +305,7 @@
   text-align: justify;
 
   @include mq("lg") {
-    padding-block-start: calc(46 * var(--large-fluid-ratio));
+    padding-block-start: calc(25 * var(--large-fluid-ratio));
   }
 
   @include mq("md") {
@@ -301,7 +316,6 @@
     font-size: var(--_clamp);
     letter-spacing: calc(calc(30 / 1000) * 1em);
     line-height: calc(50 / 26);
-    padding-block-start: calc(36 * var(--medium-fluid-ratio));
   }
 }
 
@@ -343,6 +357,35 @@
   }
 }
 
+.about__image2 {
+  visibility: hidden;
+
+  @include mq("lg") {
+    margin-block-start: calc(130 * var(--large-fluid-ratio));
+    margin-block-end: calc(90 * var(--large-fluid-ratio));
+    visibility: visible;
+    inline-size: calc(500 * var(--large-fluid-ratio));
+    position: relative;
+    left: -60px;
+  }
+
+  @media screen and (max-width: 920px) {
+    margin-block-start: calc(100 * var(--large-fluid-ratio));
+  }
+
+  @include mq("md") {
+    visibility: hidden;
+    position: absolute;
+    inline-size: 0;
+    block-size: 0;
+  }
+
+  img {
+    aspect-ratio: 620/360;
+    object-fit: cover;
+  }
+}
+
 .about__image-wrapper {/* 絶対配置したい画像を囲むタグ */
   display: block grid;
   grid-template-areas: subgrid;
@@ -367,17 +410,14 @@
     --_y: 575;
 
     @include mq("lg") {
-      --_w: 400;
-      --_x: -44;
-      --_y: 640;
-    }
-    @media screen and (max-width: 920px) {
-      --_w: 400;
-      --_x: -47;
-      --_y: 830;
+      visibility: hidden;
+      --_w: 0;
+      --_x: 0;
+      --_y: 0;
     }
     
     @include mq("md") {
+      visibility: visible;
       --_w: 0;
       --_x: 0;
       --_y: 0;
@@ -396,6 +436,14 @@
     --_w: 348;
     --_x: 833;
     --_y: 807;
+
+    @include mq("lg") {
+      --_y: 643;
+    }
+
+    @media screen and (max-width: 920px) {
+      --_y: 725;
+    }
 
     @include mq("md") {
       --_w: 0;
@@ -455,6 +503,7 @@
   --_duration: 0.25s;
 
   overflow: hidden;
+  position: relative;
 
   &:has(:any-link:hover) {
     @media (any-hover: hover) {
@@ -474,17 +523,7 @@
 }
 
 .service__link {  
-  position: relative;
-
-  &:any-link:hover {
-    @media (any-hover: hover) {
-      opacity: var(--_has-active-true, 0.6);
-    }
-  }
-  
-  &:focus-visible {
     opacity: var(--_has-active-true, 0.6);
-  }
 
   img {
     transition: all var(--_duration);

@@ -36,6 +36,14 @@
     font-size: var(--_clamp);
     line-height: calc(35.8 / 26);
     grid-template-columns: repeat(2, auto);
+    // grid-template-columns: calc(154 * var(--medium-fluid-ratio)) auto;
+  }
+}
+
+.recruitDetail-table__row {
+  &:last-of-type .recruitDetail-table__heading,
+  &:last-of-type .recruitDetail-table__data {
+    border-block-end: 1px solid var(--_border-color);
   }
 }
 
@@ -55,7 +63,7 @@
 
   @include mq("md") {
     padding-inline-start: calc(18 * var(--medium-fluid-ratio));
-    padding-inline-end: calc(16 * var(--medium-fluid-ratio));
+    padding-inline-end: calc(12.5 * var(--medium-fluid-ratio));
   }
 }
 

@@ -20,12 +20,8 @@
 if (is_404()) { ?>
   </div>
 <?php } ?>
-<?php wp_footer(); ?>
 
-<?php if (is_page('固定ページのID')) { ?>
-  <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
-<?php
-} ?>
+<?php wp_footer(); ?>
 
 </body>
 

@@ -228,6 +228,13 @@
   }
 }
 
+.about-table__row {
+  &:last-of-type .about-table__heading,
+  &:last-of-type .about-table__data {
+    border-block-end: 1px solid var(--_border-color);
+  }
+}
+
 .about-table__heading,
 .about-table__data {
   display: grid;
@@ -293,6 +300,8 @@
   --_font-size: 16;
   
   @include mq("md") {
+    text-align: justify;
+    letter-spacing: 0.02em;
 
     &:not(:first-child) {
       margin-block-start: 1.5em;
@@ -368,7 +377,11 @@
 # origin
 =============================================== */
 .about-origin {
-  margin-block-start: 120px;
+  margin-block-start: 100px;
+
+  @include mq("md") {
+    margin-block-start: calc(48 * var(--medium-fluid-ratio));
+  }
 }
 
 .about-origin__image {
