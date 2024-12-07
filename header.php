@@ -3,11 +3,13 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
-  <?php if (is_home() || is_front_page()): ?>
-    <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+<?php if (is_home() || is_front_page()): ?>
+
+  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
   <?php else: ?>
+
     <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#">
-  <?php endif; ?>
+    <?php endif; ?>
 
     <meta charset="<?php bloginfo('charset'); ?>" />
     <meta name="robots" content="noindex,nofollow">
@@ -118,7 +120,7 @@
     </script>
     <!-- End Google Tag Manager -->
 
-      <?php wp_head(); ?>
+    <?php wp_head(); ?>
     </head>
 
   <body <?php body_class(); ?>><?php wp_body_open(); ?>
@@ -175,13 +177,13 @@
         <div class="header__inner inner">
           <div class="header__wrapper">
             <?php if (is_home() || is_front_page()): ?>
-              <h1 class="header__logo">
+              <h1 class="header__logo fixed-logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo-link">
                   <img src="<?php echo get_theme_file_uri('/assets/images/header/logo.svg'); ?>" alt="ロゴ">
                 </a>
               </h1>
             <?php else: ?>
-              <p class="header__logo">
+              <p class="header__logo fixed-logo">
                 <a href="<?php echo esc_url(home_url('/')); ?>" class="header__logo-link">
                   <img src="<?php echo get_theme_file_uri('/assets/images/header/logo.svg'); ?>" alt="ロゴ">
                 </a>
@@ -198,7 +200,7 @@
                   <li class="header__item"><a href="<?php echo esc_url(home_url('#access')); ?>" class="header__link">アクセス</a></li>
                 </ul>
               </nav>
-              <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="header__contact">
+              <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="header__contact fixed-contact">
                 <picture>
                   <source srcset="<?php echo get_theme_file_uri('/assets/images/header/header-contact.webp'); ?>" type="image/webp">
                   <img src="<?php echo get_theme_file_uri('/assets/images/header/header-contact.jpg'); ?>" alt="お問い合わせマーク">

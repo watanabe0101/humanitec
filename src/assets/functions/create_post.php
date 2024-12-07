@@ -218,3 +218,12 @@ add_action('init', 'add_custom_taxonomy');
   return $title;
   }
   add_filter( 'get_archive_chapter_title', 'custom_archive_title', 10 );
+
+
+
+// 求人情報の本文入力欄削除
+function my_remove_post_support()
+{
+  remove_post_type_support('recruit', 'editor');
+}
+add_action('init', 'my_remove_post_support');
